@@ -1,3 +1,7 @@
+const bookTitle = document.querySelector('.title')
+const bookAuthor = document.querySelector('.author')
+const addBtn = document.querySelector('.add-btn');
+
 const collection = [
   {
     title: ;
@@ -5,12 +9,12 @@ const collection = [
   }
 ];
 
-function addBook() {
-  this.title = title;
+function addBook(e) {
+    console.log(e)
 }
 
-const addBtn = document.querySelector('.add-btn');
 
-addBtn.addEventListener('click', () => {
-  
+
+addBtn.addEventListener('click', (e) => {
+  console.log('value of e is ', e)
 })
