@@ -17,9 +17,9 @@
     <hr>
 
     <form action="" class="form">
-      <input type="text" placeholder="Title">
-      <input type="text" placeholder="Author">
-      <button class="add-btn">Add</button>
+      <input id="title" onchange="handleChange()" type="text" placeholder="Title">
+      <input id="author" onchange="handleChange()" type="text" placeholder="Author">
+      <button id="add-btn" onclick="handleChange()">Add</button>
     </form>
   </main>
   <script src="script.js"></script>

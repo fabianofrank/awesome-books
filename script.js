@@ -1,9 +1,7 @@
-// const bookTitle = document.querySelector('.title')
-// const bookAuthor = document.querySelector('.author')
-// const addBtn = document.querySelector('.add-btn');
-
+const bookTitle = document.getElementById('title')
+const bookAuthor = document.getElementById('author')
+const addBtn = document.getElementById('add-btn');
 const listBooks = document.querySelector('.list-book');
-
 const collection = [];
 
 function addBook(title, author) {
@@ -12,43 +10,29 @@ function addBook(title, author) {
       title: title,
       author: author,
     });
-    
     collection.push(book);
-    console.log('', book);
 }
-
-addBook('hahah', 'okaay');
-addBook('hahah', 'okaay');
-addBook('hahah', 'okaay');
-console.log('collection is ', collection);
-
-document.addEventListener('DOMContentLoaded', () => {
-    listBooks.innerHTML = collection.map((col, obj) => `
-    <div class="${obj}">
-        <p>${col.title}</p>
-        <p>${col.author}</p>
-        <button class="btn${obj}">Remove</button>
-    </div>
-    `)
-})
 
 function removeBook() {
-    for (let i = 0; i <= collection.length; i++) {
-        const removeBtn = document.querySelector('.btn'+i)
-        removeBtn.addEventListener('click', () => {
-            i.style.display = 'none'
-        })
- }
+  const rem = window.event.target.className.split('-')[1];
+  document.querySelector(`.div-${rem}`).style.display = 'none';
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  listBooks.innerHTML = collection.map((col, obj) => `
+  <div class="div-${obj}">
+    <p>${col.title}</p>
+    <p>${col.author}</p>
+    <button class="btn-${obj}" onclick="removeBook()">Remove</button>
+  </div>
+  `).join('');
+})
 
+function handleChange() {
+   addBook(bookTitle.value, bookAuthor.value);
+}
 
+addBtn.addEventListener("click", handleChange)
 
-
-
-
-
-// addBtn.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   console.log('asasasa')
-// })
+addBook('booktitle', 'oeeey');
+console.log('collection is ', collection);
