@@ -1,20 +1,24 @@
-const bookTitle = document.querySelector('.title')
-const bookAuthor = document.querySelector('.author')
-const addBtn = document.querySelector('.add-btn');
+// const bookTitle = document.querySelector('.title')
+// const bookAuthor = document.querySelector('.author')
+// const addBtn = document.querySelector('.add-btn');
 
-const collection = [
-  {
-    title: ;
-    author: ;
-  }
-];
+const collection = [];
 
-function addBook(e) {
-    console.log(e)
+function addBook(title, author) {
+  let book = new Object(
+    {
+      title: title,
+      author: author,
+    });
+    
+    collection.push(book);
+    console.log(book);
 }
 
+addBook('hahah', 'okaay');
+console.log(collection);
 
-
-addBtn.addEventListener('click', (e) => {
-  console.log('value of e is ', e)
-})
+// addBtn.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   console.log('asasasa')
+// })
