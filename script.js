@@ -4,6 +4,17 @@ const addBtn = document.getElementById('add-btn');
 const listBooks = document.querySelector('.list-book');
 const collection = [];
 
+
+function handleChange() {
+    addBook(bookTitle.value, bookAuthor.value);
+ }
+ 
+
+addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    handleChange;
+})
+
 function addBook(title, author) {
   let book = new Object(
     {
@@ -18,7 +29,8 @@ function removeBook() {
   document.querySelector(`.div-${rem}`).style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+addBtn.addEventListener('click', () => {
+    // e.preventDefault();
   listBooks.innerHTML = collection.map((col, obj) => `
   <div class="div-${obj}">
     <p>${col.title}</p>
@@ -26,13 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <button class="btn-${obj}" onclick="removeBook()">Remove</button>
   </div>
   `).join('');
+  handleChange;
+
 })
 
-function handleChange() {
-   addBook(bookTitle.value, bookAuthor.value);
-}
-
-addBtn.addEventListener("click", handleChange)
 
 addBook('booktitle', 'oeeey');
 console.log('collection is ', collection);
