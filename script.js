@@ -6,27 +6,33 @@ const booksContainer = document.querySelector('.books-container');
 const getLocalBooks = localStorage.getItem('books');
 const localBooks = JSON.parse(getLocalBooks);
 let booksCollection = getLocalBooks ? localBooks : [];
-class AddBook {
-  constructor(title, author) {
+
+class Books {
+  constructor() {
+    this.booksCollection = [];
+  }
+  
+  addBook(title, author) {
     this.title = title;
     this.author = author;
     this.id = parseInt((Math.random() * 1000000000), 10);
   }
-}
 
-function handleChange() {
-  const book = new AddBook(bookTitle.value, bookAuthor.value);
-  booksCollection.push(book);
-  localStorage.setItem('this', JSON.stringify(booksCollection));
-}
+  removeBook(bookID) {
+    const bookClass = window.event.target.className.split('-')[1];
+    document.querySelector(`.div-${bookClass}`).style.display = 'none';
+    const bookId = window.event.target.id;
+    const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt((bookId), 10));
+    booksCollection = newbooksCollection;
+    localStorage.setItem('books', JSON.stringify(newbooksCollection));
+  }
 
-function removeBook() {
-  const bookClass = window.event.target.className.split('-')[1];
-  document.querySelector(`.div-${bookClass}`).style.display = 'none';
-  const bookId = window.event.target.id;
-  const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt((bookId), 10));
-  booksCollection = newbooksCollection;
-  localStorage.setItem('books', JSON.stringify(newbooksCollection));
+  // getter method
+  handleChange() {
+    const book = new Books(bookTitle.value, bookAuthor.value);
+    this.booksCollections.push();
+    localStorage.setItem('this', JSON.stringify(booksCollection));
+  }
 }
 
 addBtn.addEventListener('click', (e) => {
