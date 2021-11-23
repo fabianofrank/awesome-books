@@ -11,7 +11,7 @@ class Books {
   constructor() {
     this.booksCollection = [];
   }
-  
+
   addBook(title, author) {
     this.title = title;
     this.author = author;
@@ -29,7 +29,7 @@ class Books {
 
   // getter method
   handleChange() {
-    const book = new Books(bookTitle.value, bookAuthor.value);
+    addBook(bookTitle.value, bookAuthor.value);
     this.booksCollections.push();
     localStorage.setItem('this', JSON.stringify(booksCollection));
   }
