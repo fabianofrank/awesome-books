@@ -25,7 +25,6 @@ function removeBook() {
   const bookClass = window.event.target.className.split('-')[1];
   document.querySelector(`.div-${bookClass}`).style.display = 'none';
   const bookId = window.event.target.id;
-	console.log(bookId)
   const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt(bookId));
   booksCollection = newbooksCollection;
   localStorage.setItem('books', JSON.stringify(newbooksCollection));
