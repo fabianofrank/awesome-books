@@ -11,7 +11,7 @@ function addBook(title, author) {
   const book = {
     title,
     author,
-		id: parseInt(Math.random()*1000000000)
+		id: parseInt((Math.random() * 1000000000), 10),
   };
   booksCollection.push(book);
   localStorage.setItem('books', JSON.stringify(booksCollection));
@@ -25,7 +25,7 @@ function removeBook() {
   const bookClass = window.event.target.className.split('-')[1];
   document.querySelector(`.div-${bookClass}`).style.display = 'none';
   const bookId = window.event.target.id;
-  const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt(bookId));
+  const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt((bookId), 10));
   booksCollection = newbooksCollection;
   localStorage.setItem('books', JSON.stringify(newbooksCollection));
 }
