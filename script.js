@@ -4,13 +4,11 @@ const addBtn = document.getElementById('add-btn');
 const listBooks = document.querySelector('.list-book');
 const collection = [];
 
-
 function handleChange() {
     addBook(bookTitle.value, bookAuthor.value);
  }
- 
 
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     handleChange;
 })
@@ -30,7 +28,6 @@ function removeBook() {
 }
 
 addBtn.addEventListener('click', () => {
-    // e.preventDefault();
   listBooks.innerHTML = collection.map((col, obj) => `
   <div class="div-${obj}">
     <p>${col.title}</p>
@@ -39,9 +36,4 @@ addBtn.addEventListener('click', () => {
   </div>
   `).join('');
   handleChange;
-
 })
-
-
-addBook('booktitle', 'oeeey');
-console.log('collection is ', collection);
