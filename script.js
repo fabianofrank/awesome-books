@@ -6,36 +6,19 @@ const booksContainer = document.querySelector('.books-container');
 const getLocalBooks = localStorage.getItem('books');
 const localBooks = JSON.parse(getLocalBooks);
 let booksCollection = getLocalBooks ? localBooks : [];
-
-// function addBook(title, author) {
-//   const book = {
-//     title,
-//     author,
-//     id: parseInt((Math.random() * 1000000000), 10),
-//   };
-//   booksCollection.push(book);
-//   localStorage.setItem('books', JSON.stringify(booksCollection));
-// }
-
-class addBook {
+class AddBook {
   constructor(title, author) {
     this.title = title;
     this.author = author;
     this.id = parseInt((Math.random() * 1000000000), 10);
-    this.save = function() {
-      return booksCollection.push(this)
-      }
-    }
-    // pushBook() {
-    //     return booksCollection.push(this);
-    //     localStorage.setItem('this', JSON.stringify(booksCollection));
-    // }
   }
+}
 
-const book = new addBook(bookTitle.value, bookAuthor.value);
 function handleChange() {
-   booksCollection.push(book);
-  }
+  const book = new AddBook(bookTitle.value, bookAuthor.value);
+  booksCollection.push(book);
+  localStorage.setItem('this', JSON.stringify(booksCollection));
+}
 
 function removeBook() {
   const bookClass = window.event.target.className.split('-')[1];
