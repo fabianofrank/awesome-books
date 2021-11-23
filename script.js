@@ -11,7 +11,7 @@ function addBook(title, author) {
   const book = {
     title,
     author,
-		id: parseInt((Math.random() * 1000000000), 10),
+    id: parseInt((Math.random() * 1000000000), 10),
   };
   booksCollection.push(book);
   localStorage.setItem('books', JSON.stringify(booksCollection));
