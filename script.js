@@ -11,6 +11,7 @@ function addBook(title, author) {
   const book = {
     title,
     author,
+		id: parseInt(Math.random()*1000000000)
   };
   booksCollection.push(book);
   localStorage.setItem('books', JSON.stringify(booksCollection));
@@ -24,7 +25,8 @@ function removeBook() {
   const bookClass = window.event.target.className.split('-')[1];
   document.querySelector(`.div-${bookClass}`).style.display = 'none';
   const bookId = window.event.target.id;
-  const newbooksCollection = booksCollection.filter((book) => book.title !== bookId);
+	console.log(bookId)
+  const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt(bookId));
   booksCollection = newbooksCollection;
   localStorage.setItem('books', JSON.stringify(newbooksCollection));
 }
@@ -35,7 +37,7 @@ addBtn.addEventListener('click', (e) => {
   <div class="div-${obj}">
   <p>${col.title}</p>
   <p>${col.author}</p>
-  <button class="btn-${obj}" id="${col.title}" onclick="removeBook()">Remove</button>
+  <button class="btn-${obj}" id="${col.id}" onclick="removeBook()">Remove</button>
   <hr>
   </div>`).join('');
   bookTitle.value = '';
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   booksContainer.innerHTML = booksCollection.map((col, obj) => `<div class="div-${obj}">
   <p>${col.title}</p>
   <p>${col.author}</p>
-  <button class="btn-${obj}" id="${col.title}" onclick="removeBook()">Remove</button>
+  <button class="btn-${obj}" id="${col.id}" onclick="removeBook()">Remove</button>
   <hr>
   </div>`).join('');
 });
