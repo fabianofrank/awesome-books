@@ -1,17 +1,19 @@
 * {
- margin: 0;
- box-sizing: border-box;
- 
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
   text-align: center;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 32px;
 }
 
@@ -24,7 +26,8 @@ h1, h2 {
 
 .form-class input {
   margin-bottom: 10px;
-  padding: 5px 50px;
+  padding: 5px 10px;
+  width: 300px;
   border: 2px solid black;
   text-align: left;
 }
@@ -42,15 +45,27 @@ h1, h2 {
   margin: 20px 0;
 }
 
+.books-container {
+  border: 2px solid black;
+  margin: 20px 0;
+}
+
 .book-class {
   display: flex;
   width: 550px;
   text-align: left;
-  background: transparent;
+}
+
+.book-class:nth-child(even) {
+  background: #fff;
+}
+
+.book-class:nth-child(odd) {
+  background: lightgray;
 }
 
 .book-class article {
-  flex:1;
+  flex: 1;
   display: flex;
   padding: 5px;
   margin: 5px 10px;
@@ -61,13 +76,5 @@ h1, h2 {
   box-shadow: 2px 2px;
   justify-self: flex-end;
   margin: 5px 10px;
-}
-
-.books-container {
-  border: 2px solid black;
-  margin: 20px 0;
-}
-
-.books-container:nth-child(odd) {
-  background: blue;
+  background: #fff;
 }

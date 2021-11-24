@@ -35,8 +35,7 @@ class BookShelf {
     this.container.innerHTML = this.shelf.map((text) => `
     <div class="book-class">
     <article>
-    <p>"${text.title}" by</p>
-    <p>${text.author}</p>
+    <p>"${text.title}" by ${text.author}</p>
     </article>
     <button id="${text.id}" onclick="removeThisBook()">Remove</button>
     </div>`).join('');
