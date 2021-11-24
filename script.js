@@ -1,12 +1,8 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable max-classes-per-file */
+
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
-const booksContainer = document.querySelector('.books-container');
-const getLocalBooks = localStorage.getItem('books');
-const localBooks = JSON.parse(getLocalBooks);
-let booksCollection = getLocalBooks ? localBooks : [];
-
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -40,7 +36,7 @@ class BookShelf {
     <div>
     <p>${text.title}</p>
     <p>${text.author}</p>
-    <button id="${text.id}" onclick="removeBook()">Remove</button>
+    <button id="${text.id}" onclick="removeThisBook()">Remove</button>
     <hr>
     </div>`).join('');
   }
@@ -58,25 +54,21 @@ class BookShelf {
   }
 }
 
+const myShelf = new BookShelf([], '.books-container');
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  booksContainer.innerHTML = booksCollection.map((col, obj) => `
-  <div class="div-${obj}">
-  <p>${col.title}</p>
-  <p>${col.author}</p>
-  <button class="btn-${obj}" id="${col.id}" onclick="removeBook()">Remove</button>
-  <hr>
-  </div>`).join('');
+  myShelf.addBook(bookTitle.value, bookAuthor.value);
   bookTitle.value = '';
   bookAuthor.value = '';
 });
 
+function removeThisBook() {
+  const remove = window.event.target.id;
+  myShelf.removeBook(remove);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  booksContainer.innerHTML = booksCollection.map((col, obj) => `<div class="div-${obj}">
-  <p>${col.title}</p>
-  <p>${col.author}</p>
-  <button class="btn-${obj}" id="${col.id}" onclick="removeBook()">Remove</button>
-  <hr>
-  </div>`).join('');
+  myShelf.displayBook();
+  removeThisBook();
 });
