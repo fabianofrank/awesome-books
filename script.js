@@ -7,6 +7,29 @@ const getLocalBooks = localStorage.getItem('books');
 const localBooks = JSON.parse(getLocalBooks);
 let booksCollection = getLocalBooks ? localBooks : [];
 
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = parseInt((Math.random() * 1000000000), 10);
+  }
+}
+
+class BookShelf{
+  constructor(shelf = [], container) {
+    this.shelf = shelf;
+    this.container = document.querySelector(container);
+  }
+
+  addBook(title, author) {
+    const newBook = new Book(title, author);
+    
+  }
+
+}
+
+
+
 class Books {
   constructor() {
     this.booksCollection = [];
