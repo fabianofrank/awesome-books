@@ -15,7 +15,7 @@ class Book {
   }
 }
 
-class BookShelf{
+class BookShelf {
   constructor(shelf = [], container) {
     this.shelf = shelf;
     this.container = document.querySelector(container);
@@ -23,40 +23,41 @@ class BookShelf{
 
   addBook(title, author) {
     const newBook = new Book(title, author);
-    
+    this.shelf.push(newBook);
+    this.displayBook();
+    this.setBookStorage(this.shelf);
   }
 
+  removeBook(bookId) {
+    const filterBook = this.shelf.filter((book) => parseInt((bookId), 10) !== book.id);
+    this.shelf = filterBook;
+    this.displayBook();
+    this.setBookStorage(this.shelf);
+  }
+
+  displayBook() {
+    this.container.innerHTML = this.shelf.map((text) => `
+    <div>
+    <p>${text.title}</p>
+    <p>${text.author}</p>
+    <button id="${text.id}" onclick="removeBook()">Remove</button>
+    <hr>
+    </div>`).join('');
+  }
+
+  setBookStorage() {
+    localStorage.setItem('books', JSON.stringify(this.shelf));
+  }
+
+  getBookStorage() {
+    if (localStorage.getItem('books')) {
+      this.shelf = JSON.parse(localStorage.getItem('books'));
+    } else {
+      this.shelf = [];
+    }
+  }
 }
 
-
-
-class Books {
-  constructor() {
-    this.booksCollection = [];
-  }
-
-  addBook(title, author) {
-    this.title = title;
-    this.author = author;
-    this.id = parseInt((Math.random() * 1000000000), 10);
-  }
-
-  removeBook(bookID) {
-    const bookClass = window.event.target.className.split('-')[1];
-    document.querySelector(`.div-${bookClass}`).style.display = 'none';
-    const bookId = window.event.target.id;
-    const newbooksCollection = booksCollection.filter((book) => book.id !== parseInt((bookId), 10));
-    booksCollection = newbooksCollection;
-    localStorage.setItem('books', JSON.stringify(newbooksCollection));
-  }
-
-  // getter method
-  handleChange() {
-    addBook(bookTitle.value, bookAuthor.value);
-    this.booksCollections.push();
-    localStorage.setItem('this', JSON.stringify(booksCollection));
-  }
-}
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
