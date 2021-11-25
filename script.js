@@ -1,8 +1,19 @@
 /* eslint-disable max-classes-per-file */
+/* eslint-disable no-undef */
 
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
+const bookList = document.querySelector('.book-list');
+const addBookForm = document.querySelector('.add-book-form');
+const contactInfo = document.querySelector('.contact-info');
+const listBtn = document.querySelector('.list-btn');
+const addNewBtn = document.querySelector('.add-new-btn');
+const contactBtn = document.querySelector('.contact-btn');
+const aColor = document.querySelector('.a-color');
+const bColor = document.querySelector('.b-color');
+const cColor = document.querySelector('.c-color');
+const dateTimeDiv = document.querySelector('.date');
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -72,4 +83,35 @@ document.addEventListener('DOMContentLoaded', () => {
   myShelf.getBookStorage();
   myShelf.displayBook();
   removeThisBook();
+  aColor.style.color = 'blue';
+  const { DateTime } = luxon;
+  const now = DateTime.now();
+  dateTimeDiv.innerHTML = now.toLocaleString(DateTime.DATETIME_MED);
+});
+
+listBtn.addEventListener('click', () => {
+  aColor.style.color = 'blue';
+  bColor.style.color = 'black';
+  cColor.style.color = 'black';
+  addBookForm.style.display = 'none';
+  bookList.style.display = 'block';
+  contactInfo.style.display = 'none';
+});
+
+addNewBtn.addEventListener('click', () => {
+  aColor.style.color = 'black';
+  bColor.style.color = 'blue';
+  cColor.style.color = 'black';
+  addBookForm.style.display = 'block';
+  bookList.style.display = 'none';
+  contactInfo.style.display = 'none';
+});
+
+contactBtn.addEventListener('click', () => {
+  aColor.style.color = 'black';
+  bColor.style.color = 'black';
+  cColor.style.color = 'blue';
+  addBookForm.style.display = 'none';
+  bookList.style.display = 'none';
+  contactInfo.style.display = 'block';
 });
