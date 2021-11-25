@@ -6,6 +6,9 @@ const addBtn = document.getElementById('add-btn');
 const bookList = document.querySelector('.book-list');
 const addBookForm = document.querySelector('.add-book-form');
 const contactInfo = document.querySelector('.contact-info');
+const listBtn = document.querySelector('.list-btn');
+const addNewBtn = document.querySelector('.add-new-btn');
+const contactBtn = document.querySelector('.contact-btn');
 
 
 class Book {
@@ -77,4 +80,31 @@ document.addEventListener('DOMContentLoaded', () => {
   myShelf.getBookStorage();
   myShelf.displayBook();
   removeThisBook();
+});
+
+listBtn.addEventListener('click', () => {
+	bookList.classList.add('show');
+	bookList.classList.remove('hide');
+	addBookForm.classList.add('hide');
+	addBookForm.classList.remove('show');
+	contactInfo.classList.add('hide');
+	contactInfo.classList.remove('show');
+});
+
+addNewBtn.addEventListener('click', () => {
+	addBookForm.classList.add('show');
+	addBookForm.classList.remove('hide');
+	bookList.classList.add('hide');
+	bookList.classList.remove('show');
+	contactInfo.classList.add('hide');
+	contactInfo.classList.remove('show');
+});
+
+contactBtn.addEventListener('click', () => {
+	contactInfo.classList.add('show');
+	contactInfo.classList.remove('hide');
+	addBookForm.classList.add('hide');
+	addBookForm.classList.remove('show');
+	bookList.classList.add('hide');
+	bookList.classList.remove('show');
 });

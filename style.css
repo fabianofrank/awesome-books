@@ -25,6 +25,15 @@ h2 {
   font-size: 32px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.background {
+  color: blue;
+}
+
 nav h3 {
   margin: 0 20px;
 }
@@ -124,4 +133,12 @@ nav h3 {
 .contact-info ul {
   margin: 20px 0 80px 0;
   padding: 20px 60px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
