@@ -12,8 +12,7 @@ const contactBtn = document.querySelector('.contact-btn');
 const aColor = document.querySelector('.a-color');
 const bColor = document.querySelector('.b-color');
 const cColor = document.querySelector('.c-color');
-const dateTime = document.querySelector('.date');
-
+const dateTimeDiv = document.querySelector('.date');
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -84,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
   myShelf.displayBook();
   removeThisBook();
   aColor.style.color = 'blue';
+	var DateTime = luxon.DateTime;
+	const now = DateTime.now();
+	dateTimeDiv.innerHTML = now.toLocaleString(DateTime.DATETIME_MED);
 });
 
 listBtn.addEventListener('click', () => {
