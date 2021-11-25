@@ -12,9 +12,37 @@ main {
   text-align: center;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  align-items: center;
+  margin: 5px 10px;
+}
+
 h1,
 h2 {
   font-size: 32px;
+}
+
+nav h3 {
+  margin: 0 20px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list li {
+  list-style: none;
+  margin: 10px;
+}
+
+.date {
+  display: flex;
+  justify-content: end;
+  margin: 0 10px;
 }
 
 .form-class {
@@ -41,8 +69,8 @@ h2 {
 .vector {
   background-color: black;
   padding: 1px;
-  width: 150px;
-  margin: 20px 0;
+  width: 2px;
+  height: 20px;
 }
 
 .books-container {
