@@ -106,3 +106,22 @@ nav h3 {
   margin: 5px 10px;
   background: #fff;
 }
+
+.contact-info h2 {
+  margin-bottom: 50px;
+}
+
+.contact-info p {
+  text-align: left;
+  padding: 5px;
+}
+
+.contact-info li {
+  text-align: left;
+  line-height: 25px;
+}
+
+.contact-info ul {
+  margin: 20px 0 80px 0;
+  padding: 20px 60px;
+}
