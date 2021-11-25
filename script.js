@@ -3,6 +3,11 @@
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const addBtn = document.getElementById('add-btn');
+const bookList = document.querySelector('.book-list');
+const addBookForm = document.querySelector('.add-book-form');
+const contactInfo = document.querySelector('.contact-info');
+
+
 class Book {
   constructor(title, author) {
     this.title = title;
