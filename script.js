@@ -12,7 +12,7 @@ const contactBtn = document.querySelector('.contact-btn');
 const aColor = document.querySelector('.a-color');
 const bColor = document.querySelector('.b-color');
 const cColor = document.querySelector('.c-color');
-
+const dateTime = document.querySelector('.date');
 
 class Book {
   constructor(title, author) {
