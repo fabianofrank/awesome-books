@@ -9,6 +9,9 @@ const contactInfo = document.querySelector('.contact-info');
 const listBtn = document.querySelector('.list-btn');
 const addNewBtn = document.querySelector('.add-new-btn');
 const contactBtn = document.querySelector('.contact-btn');
+const aColor = document.querySelector('.a-color');
+const bColor = document.querySelector('.b-color');
+const cColor = document.querySelector('.c-color');
 
 
 class Book {
@@ -80,31 +83,32 @@ document.addEventListener('DOMContentLoaded', () => {
   myShelf.getBookStorage();
   myShelf.displayBook();
   removeThisBook();
+  aColor.style.color = 'blue';
 });
 
 listBtn.addEventListener('click', () => {
-	bookList.classList.add('show');
-	bookList.classList.remove('hide');
-	addBookForm.classList.add('hide');
-	addBookForm.classList.remove('show');
-	contactInfo.classList.add('hide');
-	contactInfo.classList.remove('show');
+	aColor.style.color = 'blue';
+  bColor.style.color = 'black';
+  cColor.style.color = 'black';
+  addBookForm.style.display = 'none';
+  bookList.style.display = 'block';
+  contactInfo.style.display = 'none';
 });
 
 addNewBtn.addEventListener('click', () => {
-	addBookForm.classList.add('show');
-	addBookForm.classList.remove('hide');
-	bookList.classList.add('hide');
-	bookList.classList.remove('show');
-	contactInfo.classList.add('hide');
-	contactInfo.classList.remove('show');
+	aColor.style.color = 'black';
+  bColor.style.color = 'blue';
+  cColor.style.color = 'black';
+  addBookForm.style.display = 'block';
+  bookList.style.display = 'none';
+  contactInfo.style.display = 'none';
 });
 
 contactBtn.addEventListener('click', () => {
-	contactInfo.classList.add('show');
-	contactInfo.classList.remove('hide');
-	addBookForm.classList.add('hide');
-	addBookForm.classList.remove('show');
-	bookList.classList.add('hide');
-	bookList.classList.remove('show');
+	aColor.style.color = 'black';
+  bColor.style.color = 'black';
+  cColor.style.color = 'blue';
+  addBookForm.style.display = 'none';
+  bookList.style.display = 'none';
+  contactInfo.style.display = 'block';
 });
