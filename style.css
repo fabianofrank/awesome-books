@@ -1,3 +1,80 @@
-main {
+* {
   margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-size: 32px;
+}
+
+.form-class {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.form-class input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  width: 300px;
+  border: 2px solid black;
+  text-align: left;
+}
+
+.form-class button {
+  border: 2px solid black;
+  box-shadow: 2px 2px;
+  padding: 2px 10px;
+}
+
+.vector {
+  background-color: black;
+  padding: 1px;
+  width: 150px;
+  margin: 20px 0;
+}
+
+.books-container {
+  border: 2px solid black;
+  margin: 20px 0;
+}
+
+.book-class {
+  display: flex;
+  width: 550px;
+  text-align: left;
+}
+
+.book-class:nth-child(even) {
+  background: #fff;
+}
+
+.book-class:nth-child(odd) {
+  background: lightgray;
+}
+
+.book-class article {
+  flex: 1;
+  display: flex;
+  padding: 5px;
+  margin: 5px 10px;
+}
+
+.book-class button {
+  border: 2px solid black;
+  box-shadow: 2px 2px;
+  justify-self: flex-end;
+  margin: 5px 10px;
+  background: #fff;
 }

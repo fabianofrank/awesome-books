@@ -33,11 +33,11 @@ class BookShelf {
 
   displayBook() {
     this.container.innerHTML = this.shelf.map((text) => `
-    <div>
-    <p>${text.title}</p>
-    <p>${text.author}</p>
+    <div class="book-class">
+    <article>
+    <p>"${text.title}" by ${text.author}</p>
+    </article>
     <button id="${text.id}" onclick="removeThisBook()">Remove</button>
-    <hr>
     </div>`).join('');
   }
 
@@ -69,6 +69,7 @@ function removeThisBook() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  myShelf.getBookStorage();
   myShelf.displayBook();
   removeThisBook();
 });
