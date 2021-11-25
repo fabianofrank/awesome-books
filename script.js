@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+/* eslint-disable no-undef */
 
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
@@ -83,13 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
   myShelf.displayBook();
   removeThisBook();
   aColor.style.color = 'blue';
-	var DateTime = luxon.DateTime;
-	const now = DateTime.now();
-	dateTimeDiv.innerHTML = now.toLocaleString(DateTime.DATETIME_MED);
+  const { DateTime } = luxon;
+  const now = DateTime.now();
+  dateTimeDiv.innerHTML = now.toLocaleString(DateTime.DATETIME_MED);
 });
 
 listBtn.addEventListener('click', () => {
-	aColor.style.color = 'blue';
+  aColor.style.color = 'blue';
   bColor.style.color = 'black';
   cColor.style.color = 'black';
   addBookForm.style.display = 'none';
@@ -98,7 +99,7 @@ listBtn.addEventListener('click', () => {
 });
 
 addNewBtn.addEventListener('click', () => {
-	aColor.style.color = 'black';
+  aColor.style.color = 'black';
   bColor.style.color = 'blue';
   cColor.style.color = 'black';
   addBookForm.style.display = 'block';
@@ -107,7 +108,7 @@ addNewBtn.addEventListener('click', () => {
 });
 
 contactBtn.addEventListener('click', () => {
-	aColor.style.color = 'black';
+  aColor.style.color = 'black';
   bColor.style.color = 'black';
   cColor.style.color = 'blue';
   addBookForm.style.display = 'none';
